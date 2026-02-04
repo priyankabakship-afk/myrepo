@@ -5,7 +5,7 @@ pipeline {
         stage('Deploy to Web Server') {
             steps {
                 dir('/var/www/html') {
-                    git branch: 'main',
+                    git branch: 'master',
                         url: 'https://github.com/priyankabakship-afk/myrepo.git',
                         credentialsId: 'github-jenkins'
                 }
