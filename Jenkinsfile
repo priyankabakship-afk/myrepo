@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Deploy to Web Server') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Build started'
+                dir('/var/www/html') {
+                    git branch: 'main',
+                        url: 'https://github.com/priyankabakship-afk/myrepo.git',
+                        credentialsId: 'github-jenkins'
+                }
             }
         }
     }
